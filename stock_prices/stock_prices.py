@@ -4,7 +4,15 @@ import argparse
 
 
 def find_max_profit(prices):
-    # Calculate min_price_so_far
+    # Step 1: Set min_price_so_far to first value in the array
+    if len(prices) > 1:
+        min_price_so_far = prices[0]
+
+    # Step 2: Loop through the rest of the array, subtracting min_price_so_far from values and saving max profit to max_profit variable
+
+    # Step 3: Repeat Steps 1 and 2 for rest of the values exept the last, reassigning max profit if greater than previous
+
+    # Step 4: Return max_profit
     pass
 
 
