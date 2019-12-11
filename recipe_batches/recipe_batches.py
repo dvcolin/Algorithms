@@ -4,33 +4,39 @@ import math
 
 
 def recipe_batches(recipe, ingredients):
-    # Step 1: Check keys in recipe and ingredients, return 0 if key doesn't exist in ingredients
+
+    # Step 1: Check keys in recipe and ingredients, return -1 if key doesn't exist in ingredients
     def check_keys():
         for key in recipe.keys():
             if key not in ingredients.keys():
                 return -1
-            else:
-                pass
 
-    def compare_amounts(recipe, ingredients):
+    # Step 2: Check values in recipe and ingredients, return -1 if ingredient value is less than recipe value
+    def compare_amounts():
         for key, value in recipe.items():
             if ingredients[key] < value:
                 return -1
 
-    if check_keys() != -1 and compare_amounts(recipe, ingredients) != -1:
-        return 'Hello'
+    # Step 3: Subtract values from ingredients and recipes += 1, while ingredients values are greater than recipe value
+    def num_recipes():
+        cache = []
+        for key, value in ingredients.items():
+            num = 0
+            while value - recipe[key] >= 0:
+                value = value - recipe[key]
+                num += 1
+            cache.append(num)
+        return min(cache)
+
+    # STEPS 1 AND 2
+    if check_keys() != -1 and compare_amounts() != -1:
+        # STEP 3
+        return num_recipes()
     else:
         return 0
 
-    # Else set num_recipes += 1
 
-    # Step 2: Subtract values in ingredients from recipes
-
-    # Step 3: Repeat Steps 1 and 2
-
-
-print(recipe_batches({"eggs": 5, "flour": 2}, {"eggs": 5, "flour": 2}))
-
+print(recipe_batches({"eggs": 5, "flour": 2}, {"eggs": 15, "flour": 4}))
 
 # if __name__ == '__main__':
 #     # Change the entries of these dictionaries to test
