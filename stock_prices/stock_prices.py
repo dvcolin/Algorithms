@@ -5,9 +5,8 @@ import argparse
 
 def find_max_profit(prices):
     if len(prices) > 1:
-        # Step 1: Set cur_index and set cur_value to the value at that index
+        # Step 1: Set cur_index and max_profit variables
         cur_index = 0
-        cur_value = prices[cur_index]
         max_profit = prices[1] - prices[0]
 
     # Step 2: Loop through the array, subtracting cur_value from later values and saving max profit to max_profit variable
