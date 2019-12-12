@@ -17,7 +17,7 @@ def recipe_batches(recipe, ingredients):
             if ingredients[key] < value:
                 return -1
 
-    # Step 3: Subtract values from ingredients and recipes += 1, while ingredients values are greater than recipe value
+    # Step 3: Subtract values from ingredients and num += 1, while ingredients values are greater than recipe value
     def num_recipes():
         cache = []
         for key, value in ingredients.items():
@@ -28,7 +28,7 @@ def recipe_batches(recipe, ingredients):
             cache.append(num)
         return min(cache)
 
-    # STEPS 1 AND 2
+    # STEP 1, STEP 2
     if check_keys() != -1 and compare_amounts() != -1:
         # STEP 3
         return num_recipes()
@@ -36,12 +36,10 @@ def recipe_batches(recipe, ingredients):
         return 0
 
 
-print(recipe_batches({"eggs": 5, "flour": 2}, {"eggs": 15, "flour": 4}))
-
-# if __name__ == '__main__':
-#     # Change the entries of these dictionaries to test
-#     # your implementation with different inputs
-#     recipe = {'milk': 100, 'butter': 50, 'flour': 5}
-#     ingredients = {'milk': 132, 'butter': 48, 'flour': 51}
-#     print("{batches} batches can be made from the available ingredients: {ingredients}.".format(
-#         batches=recipe_batches(recipe, ingredients), ingredients=ingredients))
+if __name__ == '__main__':
+    # Change the entries of these dictionaries to test
+    # your implementation with different inputs
+    recipe = {'milk': 100, 'butter': 50, 'flour': 5}
+    ingredients = {'milk': 132, 'butter': 48, 'flour': 51}
+    print("{batches} batches can be made from the available ingredients: {ingredients}.".format(
+        batches=recipe_batches(recipe, ingredients), ingredients=ingredients))
